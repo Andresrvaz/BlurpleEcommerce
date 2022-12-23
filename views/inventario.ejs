@@ -1,0 +1,28 @@
+<%- include('includes/header') %>
+<link rel="stylesheet" href="../index.css">
+</head>
+<body>
+<%- include('includes/adminnav') %>
+    <h2>Todos los productos</h2>
+
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Marca</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+        </tr>
+        <% inventario.forEach(product => { %>
+            <tr>
+                <td><a href="/admin/producto/id=<%= product.pId %>"><%= product.pName %></a></td>
+                <td><%= product.pCat %> </td>
+                <td><%= product.pBrand %> </td>
+                <td><%= product.pPrice %> </td>
+                <td><%= product.pQ %> </td>
+            </tr>
+            <% }); %>
+    </table>
+ 
+
+<%-include('includes/footer') %>

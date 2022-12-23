@@ -1,0 +1,15 @@
+<%- include('includes/header') %>
+<link rel="stylsheet" href="../index.css">
+</html>
+<body>
+<%- include('includes/adminnav') %>
+    <div class="tarjeta">
+        <h2><%= producto.pName %></h2>
+        <h2><%= producto.pDesc %></h2>
+        <h2><%= producto.pCat %></h2>
+        <h2><%= producto.pBrand %></h2>
+        <h2><%= producto.pPrice %></h2>
+        <h2><%= producto.pQ %></h2>
+        <img src="<%= producto.pImg %>">
+    </div>
+<%- include('includes/footer') %>
