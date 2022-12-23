@@ -1,0 +1,52 @@
+.navbar ul,li{
+    position: sticky;
+}
+
+.navbar ul{
+padding: 5px;
+ color: black;
+ display: flex;
+ justify-content: space-evenly;
+ text-decoration: none;
+ list-style: none;
+}
+
+.banner{
+    width: 1920px;
+    height: 720px;
+    background-color: beige;
+}
+
+.shop{
+    align-content: center;
+    width: 1400px;
+    height: 920px;
+    margin: auto;
+    background-color: beige;
+}
+
+.a-navbar ul{
+    padding: 5px;
+     color: black;
+     display: flex;
+     justify-content: space-evenly;
+     text-decoration: none;
+     list-style: none;
+    }
+
+label, input{
+width: auto; 
+display: block;
+justify-content: center;
+}
+
+input{
+    width: 500px
+}
+
+.form{
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    align-content: center;
+}

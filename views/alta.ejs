@@ -1,0 +1,32 @@
+<%- include('includes/header') %>
+    <link rel="stylesheet" href="../index.css">
+</head>
+    <body>
+<%- include('includes/adminnav') %>
+      <div class="form">
+        <form action="/admin/submit" method="POST">
+         <label for="nombre"> Nombre
+            <input type="text" name="nombre" required>
+         </label>
+         <label for="decripcion"> Descripción 
+            <input type="text" name="descripcion">
+         </label>
+         <label for="categoria"> Categoría
+            <input type="text" name="categoria" required>
+         </label>
+         <label for="marca"> Marca
+            <input type="text" name="marca" required>
+         </label>
+         <label for="precio"> Precio
+            <input type="number" name="precio" required>
+         </label>
+         <label for="cantidad"> Cantidad
+            <input type="number-" name="cantidad" min="1" max="999" required>
+         </label>
+         <label for="img"> Image URL
+            <input type="text" name="img" required>
+         </label>
+         <button type="submit">Agregar</button>
+        </form>
+      </div>
+<%- include('includes/footer') %>
