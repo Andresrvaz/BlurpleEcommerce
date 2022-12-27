@@ -1,15 +1,34 @@
 <%- include('includes/header') %>
-<link rel="stylsheet" href="../index.css">
+<link rel="stylesheet" href="../../index.css">
 </html>
 <body>
 <%- include('includes/adminnav') %>
-    <div class="tarjeta">
-        <h2><%= producto.pName %></h2>
-        <h2><%= producto.pDesc %></h2>
-        <h2><%= producto.pCat %></h2>
-        <h2><%= producto.pBrand %></h2>
-        <h2><%= producto.pPrice %></h2>
-        <h2><%= producto.pQ %></h2>
-        <img src="<%= producto.pImg %>">
+    <div class="form">
+        <form action="/admin/actualizar/id=<%= producto.pId %>" method="POST">
+            <label for="nombre"> Nombre
+            <input type="text" name="nombre" value="<%= producto.pName %>">
+            </label>
+            <label for="descripcion"> Descripción
+                <input type="text" name="descripcion" value="<%= producto.pDesc %>">
+            </label>
+            <label for="categoria"> Categoría
+                <input type="text" name="categoria" value="<%= producto.pCat %>">
+            </label>
+            <label for="marca"> Marca
+                <input type="text" name="marca" value="<%= producto.pBrand %>">
+            </label>
+            <label for="precio"> Precio
+                <input type="number" name="precio" value="<%= producto.pPrice %>">
+            </label>
+            <label for="cantidad"> Cantidad
+                <input type="number" name="cantidad" min="0" max="999" value="<%= producto.pQt %>">
+            </label>
+            <img widht="250px" height="250px" src="<%= producto.pImg %>">
+            <label for="imagenP"> Imagen URL
+                <input type="text" name="imagenP" value="<%= producto.pImg %>">
+            </label>
+            <button type="submit">Actualizar</button>
+            </form>
+            <button><a href="/admin/eliminar/id=<%= producto.pId %>">Eliminar</a></button>
     </div>
 <%- include('includes/footer') %>

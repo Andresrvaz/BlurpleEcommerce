@@ -1,0 +1,19 @@
+<%- include ('includes/header') %>
+    <link rel="stylesheet" href="../index.css">
+</html>
+<body>
+<%- include ('includes/adminnav') %>
+
+    <h1>Todas las entradas</h1>
+
+    <% articulos.forEach(articulo =>{ %>
+    <div class="articulo">
+        <h2><a href="/admin/blog/id=<%= articulo.id %>"> <%= articulo.titulo %> </a></h2>
+        <p> <%= articulo.autor %> </p>
+        <p><%= articulo.editado ? "Editado": "" %></p>
+        <p> <%= articulo.fecha %> <%= articulo.hora %> </p>
+        <img src="<%= articulo.imagen %> " width="250px" height="250px">
+        <p> <%= articulo.cuerpo %> </p>
+    </div>
+    <%  }); %>
+<%- include ('includes/footer') %>

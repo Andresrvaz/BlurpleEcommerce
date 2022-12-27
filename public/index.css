@@ -34,13 +34,13 @@ padding: 5px;
      list-style: none;
     }
 
-label, input{
+label, input, textarea{
 width: auto; 
 display: block;
 justify-content: center;
 }
 
-input{
+input, textarea{
     width: 500px
 }
 

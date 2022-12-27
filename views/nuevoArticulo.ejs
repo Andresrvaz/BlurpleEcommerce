@@ -1,0 +1,23 @@
+<%- include ('includes/header') %>
+<link rel="stylesheet" href="../index.css">
+</head>
+<body>
+<%- include ('includes/adminnav') %>
+
+    <form action="" method="POST">
+        <label for="titulo"> Título
+            <input type="text" name="titulo">
+        </label>
+        <label for="autor"> Autor
+            <input type="text" name="autor">
+        </label>
+        <label for="imagen"> Imagen
+            <input type="text" name="imagen">
+        </label>
+        <label for="cuerpo"> Cuerpo
+            <textarea name="cuerpo"></textarea>
+        </label>
+        <button type="submit">Publicar</button>
+    </form>
+
+<%- include ('includes/footer') %>

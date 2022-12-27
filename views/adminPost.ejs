@@ -1,0 +1,27 @@
+<%- include ('includes/header') %>
+    <link rel="stylesheet" href="../../index.css">
+</html>
+
+<body>
+
+<%- include ('includes/adminnav') %>
+
+<form action="/admin/actualizar-blog/id=<%= post.id %>" method="POST">
+    <label for="titulo"> Título
+        <input type="text" name="titulo" value="<%= post.titulo %>">
+    </label>
+    <label for="autor"> Autor
+        <input type="text" name="autor" value=" <%= post.autor %> ">
+    </label>
+    <label for="imagen"> Imagen
+        <input type="text" name="imagen" value=" <%= post.imagen %> ">
+    </label>
+    <img src=" <%= post.imagen %> " height="250px" width="250px">
+    <label for="cuerpo"> Cuerpo
+        <textarea name="cuerpo"><%= post.cuerpo %></textarea>
+    </label>
+    <button type="submit">Actualizar</button>
+</form>
+    <button><a href="/admin/eliminar-post/id=<%= post.id %>">Eliminar</a></button>
+
+<%- include ('includes/footer') %>
