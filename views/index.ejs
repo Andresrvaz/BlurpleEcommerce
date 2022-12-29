@@ -7,8 +7,25 @@
         <div class="banner">
 
         </div>
-        <h2>Productos más vendidos</h2>
-        <div class='shop'>
+        
+        <h2><%= productos.length === 0 ? 'No hay productos disponibles': 'Todos los productos' %></h2>
 
-        </div>
+        <% if(productos.length > 0){ %>
+
+            
+                <div class='shop'>
+                    <% productos.forEach(producto => { %>
+                    <a href="/producto/id=<%= producto.pId %>">
+                        <div class="tarjeta">
+                            <img src="<%= producto.pImg %>" height="180px" width="180px">
+                            <h3> <%= producto.pName %></h3>
+                            <p> <%= producto.pDesc %></p>
+                            <p> $<%= producto.pPrice %></p>
+                        </div>
+                    </a>  
+                    <% }); %>
+                </div>
+              
+        <% } %>
+        
 <%- include('includes/footer') %>

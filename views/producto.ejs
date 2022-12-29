@@ -1,0 +1,15 @@
+<%- include('includes/header') %>
+<link rel="stylesheet" href="../../index.css">
+</html>
+<body>
+<%- include('includes/navbar') %>
+
+    <div class="singleCard">
+        <img src=" <%= producto.pImg %>" height="550px" width="550px">
+            <div>
+                <h3> <%= producto.pName %></h3>
+                <p> <%= producto.pDesc %></p>
+            </div>
+    </div>
+
+<%- include('includes/footer') %>

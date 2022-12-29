@@ -2,8 +2,9 @@ const {v4: uuidv4} = require('uuid');
 const timestamp = require('time-stamp');
 const { response } = require('express');
 
-const productArray = [];
-const blogArray=[];
+const Product = require('../models/products');
+const BlogPost = require('../models/blogPost');
+
 
     exports.getAdmin = (req,res,next) =>{
     res.render('admin')
@@ -14,8 +15,8 @@ const blogArray=[];
    };
    
    exports.getStock = (req,res,next) => {
-       console.log(productArray);
-       res.render('inventario', {inventario: productArray});
+       console.log(Product);
+       res.render('inventario', {inventario: Product});
    };
    
    exports.postProduct = (req,res,next) => {
@@ -27,7 +28,7 @@ const blogArray=[];
       const pQ= req.body.cantidad;
       const pImg= req.body.img;
    
-     productArray.push({
+     Product.push({
        pId: uuidv4(),
        pName: pName,
        pDesc: pDesc,
@@ -38,15 +39,15 @@ const blogArray=[];
        pImg: pImg
      });
    
-     console.log(productArray);
+     console.log(Product);
    
-      res.redirect('/admin/agregar-articulo')
+      res.redirect('/admin/inventario')
    };
 
    exports.getProduct = (req,res,next) => {
         console.log(req.params.ID);
 
-        productArray.forEach(product => {
+        Product.forEach(product => {
                 console.log(product.pId);
             if(product.pId === req.params.ID){
                 console.log("Product Match")
@@ -61,11 +62,11 @@ const blogArray=[];
    exports.postUpdateProduct = (req,res,next) =>{
         const id = req.params.ID;
 
-      const target = productArray.indexOf(productArray.find(product => product.id === id));
+      const target = Product.indexOf(Product.find(product => product.id === id));
 
-      productArray.splice(target,1);
+      Product.splice(target,1);
 
-        productArray.push({
+        Product.push({
             pId: req.params.ID,
             pName: req.body.nombre,
             pDesc: req.body.descripcion,
@@ -76,7 +77,9 @@ const blogArray=[];
             pImg: req.body.imagenP
         })
 
-        console.log(productArray);
+        console.log(Product);
+
+        res.redirect('/admin/inventario');
 
    };
 
@@ -86,9 +89,9 @@ const blogArray=[];
 
     const id = req.params.ID;
 
-    const target = productArray.indexOf(productArray.find(product => product.id === id));
+    const target = Product.indexOf(Product.find(product => product.id === id));
 
-    productArray.splice(target,1);
+    Product.splice(target,1);
 
     res.redirect('/admin/inventario')
 
@@ -100,7 +103,7 @@ const blogArray=[];
 
    exports.postAddBlogPost = (req,res,next) => {
     
-    blogArray.push({
+    BlogPost.push({
         id: uuidv4(),
         titulo: req.body.titulo,
         autor:  req.body.autor,
@@ -117,11 +120,11 @@ const blogArray=[];
 
    exports.postUpdateBlogPost = (req,res,next) => {
 
-    const target = blogArray.find(post => post.id === req.params.ID);
+    const target = BlogPost.find(post => post.id === req.params.ID);
 
-        blogArray.splice(blogArray.indexOf(target),1)
+        BlogPost.splice(BlogPost.indexOf(target),1)
 
-        blogArray.push({
+        BlogPost.push({
             id: req.params.ID,
             titulo: req.body.titulo,
             autor: req.body.autor,
@@ -138,9 +141,9 @@ const blogArray=[];
 
     exports.deleteBlogPost = (req,res,next) => {
         
-        const target = blogArray.find(post => post.id === req.params.ID);
+        const target = BlogPost.find(post => post.id === req.params.ID);
 
-        blogArray.splice(blogArray.indexOf(target,1));
+        BlogPost.splice(BlogPost.indexOf(target,1));
 
         res.redirect('/admin/blogfeed');
     }
@@ -155,7 +158,7 @@ const blogArray=[];
    exports.getBlogPost = (req, res, next) => {
      console.log(req.params.ID);
 
-    const post = blogArray.find(post => post.id === req.params.ID)
+    const post = BlogPost.find(post => post.id === req.params.ID)
 
     res.render('adminPost', {post: post});
 
