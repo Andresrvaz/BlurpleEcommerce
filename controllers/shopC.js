@@ -24,3 +24,4 @@ exports.getProduct = (req,res,next) => {
     res.render('producto', {producto : producto});
 
 }
+
