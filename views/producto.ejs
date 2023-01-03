@@ -10,6 +10,9 @@
                 <h3> <%= producto.pName %></h3>
                 <p> <%= producto.pDesc %></p>
             </div>
+            <div>
+                <button><a href="/agregar-carrito/id=<%= producto.pId %>">Agregar al carrito</a></button>
+            </div>
     </div>
 
 <%- include('includes/footer') %>

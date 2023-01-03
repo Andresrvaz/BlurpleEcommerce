@@ -25,7 +25,7 @@ const BlogPost = require('../models/blogPost');
       const pCat = req.body.categoria;
       const pBrand = req.body.marca;
       const pPrice = req.body.precio;
-      const pQ= req.body.cantidad;
+      const pQty= req.body.cantidad;
       const pImg= req.body.img;
    
      Product.push({
@@ -34,8 +34,8 @@ const BlogPost = require('../models/blogPost');
        pDesc: pDesc,
        pCat: pCat,
        pBrand: pBrand,
-       pPrice: pPrice,
-       pQt: pQ,
+       pPrice: parseInt(pPrice),
+       pQty: parseInt(pQty),
        pImg: pImg
      });
    
@@ -72,8 +72,8 @@ const BlogPost = require('../models/blogPost');
             pDesc: req.body.descripcion,
             pCat: req.body.categoria,
             pBrand: req.body.marca,
-            pPrice: req.body.precio,
-            pQt: req.body.cantidad,
+            pPrice: parseInt(req.body.precio),
+            pQty: parseInt(req.body.cantidad),
             pImg: req.body.imagenP
         })
 

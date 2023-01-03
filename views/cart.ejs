@@ -1,0 +1,25 @@
+<%- include ('includes/header') %>
+    <link rel="stylesheet" href="../../index.css">
+</html>
+
+<body>
+<%- include ('includes/navbar') %>
+
+<h2><%= cartProducts.length > 0 ? "Productos en tu Carrito" : "No Hay Productos en Tu Carrito" %></h2>
+    <% if(cartProducts.length > 0 ){ %>
+        <% cartProducts.forEach(product => { %>
+            <div>
+                <img src="<%= product.pImg %>" width="100px" height="100px">
+                <h3><%= product.pName %></h3>
+                <p><%= product.pDesc %></p>
+                <p>$<%= product.pPrice %></p>
+                <p><%= product.pQty %></p>
+            </div>
+        <% }); %>
+        <div>
+            <h1>Total productos en el carrito $<%= cartTotalPrice[0].totalPrice %></h1>
+        </div>
+        
+    <% } %>
+
+<%- include ('includes/footer') %>
